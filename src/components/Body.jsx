@@ -11,11 +11,11 @@ const Body = () => {
             element:<Login/>
         },
         {
-            path:"/browser",
+            path:"/browse",
             element:<Browser/>
         }
     ]);
-     
+
   return (
     <div>
         <RouterProvider router={appRouter} />
