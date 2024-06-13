@@ -44,7 +44,7 @@ const Login = () => {
       // Profile updated!
       const {uid, email ,displayName, photoURL} = auth.currentUser;
       dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}))
-      navigate("/browse")
+      // navigate("/browse")
       // ...
     }).catch((error) => {
       // An error occurred
@@ -69,7 +69,7 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
     console.log(user)
-    navigate("/browse")
+    // navigate("/browse")
     // ...
   })
   .catch((error) => {
@@ -80,9 +80,6 @@ const Login = () => {
     }
     
   };
-
-
-  
 
   // Swapping the form in signUp/signIn
   const toggleisSignInForm = () => {
