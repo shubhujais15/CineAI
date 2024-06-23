@@ -3,15 +3,14 @@ import Header from './Header';
 import { checkValidData } from '../utils/Validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BACK_PIC, USER_LOGO } from '../utils/constant';
 
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch =useDispatch();
 
   const name = useRef(null);
@@ -39,7 +38,7 @@ const Login = () => {
     // Signed up 
     const user = userCredential.user;
     updateProfile(user, {
-      displayName: name.current.value, photoURL: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-dyrp6bw6adbulg5b.jpg"
+      displayName: name.current.value, photoURL: USER_LOGO
     }).then(() => {
       // Profile updated!
       const {uid, email ,displayName, photoURL} = auth.currentUser;
@@ -51,7 +50,7 @@ const Login = () => {
       setErrorMessage(errorMessage)
       // ...
     });
-    console.log(user);
+    // console.log(user);
     
     // ...
   })
@@ -68,7 +67,7 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user)
+    // console.log(user)
     // navigate("/browse")
     // ...
   })
@@ -98,7 +97,7 @@ const Login = () => {
       <Header />
       <div className="absolute top-0 left-0 h-full w-full">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/cacfadb7-c017-4318-85e4-7f46da1cae88/e43aa8b1-ea06-46a5-abe3-df13243e718d/IN-en-20240603-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BACK_PIC}
           alt="background-img"
           className="object-cover h-full w-full"
         />
