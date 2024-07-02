@@ -141,7 +141,7 @@ const Login = () => {
         {errorMessage && <p className="text-red-500 p-2 m-1 font-bold">{errorMessage}</p>}
 
         <div className="flex">
-          <p className="mx-2">{isSignInForm ? "Already Registered?" : "New to CineAI?"}</p>
+          <p className="mx-2">{!isSignInForm ? "Already Registered?" : "New to CineAI?"}</p>
           <p className="cursor-pointer font-bold underline" onClick={toggleisSignInForm}>
             {isSignInForm ? "Sign up now" : "Sign in now"}
           </p>

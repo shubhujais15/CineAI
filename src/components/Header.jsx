@@ -58,7 +58,7 @@ const Header = () => {
 
   return (
     <div className="absolute px-4 py-2 z-10 flex flex-col md:flex-row items-center w-screen bg-gradient-to-b from-black ">
-      <div className='flex'>
+      <div className='flex mt-3 md:mt-0'>
       <img
         className="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-2 my-1 rounded-full"
         src = {App_Logo}
