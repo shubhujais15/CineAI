@@ -57,38 +57,42 @@ const Header = () => {
   },[]);
 
   return (
-    <div className="absolute top-0 left-0 px-4 py-2 z-10 flex items-center w-screen bg-gradient-to-b from-black">
+    <div className="absolute px-4 py-2 z-10 flex flex-col md:flex-row items-center w-screen bg-gradient-to-b from-black ">
+      <div className='flex'>
       <img
         className="w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-2 my-1 rounded-full"
         src = {App_Logo}
         alt="Logo"
       />
       <div className="flex flex-col sm:flex-row sm:items-center">
-        <h3 className="shadow-sm text-lg sm:text-3xl lg:text-4xl font-bold font-serif text-gray-100 rounded-xl mx-2 p-1 text-center bg-opacity-75 bg-black">
+        <h3 className="mt-2 md:mt-0 shadow-sm text-lg sm:text-3xl lg:text-4xl font-bold font-serif text-gray-100 rounded-xl mx-2 p-1 text-center bg-opacity-75 bg-black">
           CineAI
         </h3>
         {/* <h3 className="shadow-md bg-opacity-60 bg-black text-sm sm:text-lg lg:text-xl italic text-yellow-100 rounded-xl mx-2 p-1 text-center">
           Your Personalized Movie Guide
         </h3> */}
       </div>
+      </div> 
 
-     {user && <div className='flex ml-auto'>
+     {user && <div className='flex md:ml-auto mt-5'>
 
         {gptSearchView &&
-        <select className='py-2 mx-5 px-1 rounded-lg bg-gray-900 text-white' onChange={handleLanguageChange}>
+        <select className='hidden md:inline-block py-2 mx-5 px-1 rounded-lg bg-gray-900 text-white' onChange={handleLanguageChange}>
           {SUPPORTED_LANGUAGES.map((lang)=>(
             <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>
           ))}
         </select>}
 
-        <button className='mr-14 px-4 py-2 rounded-lg bg-violet-800 text-white hover:bg-opacity-80 active:scale-95'
+        <button className='mr-16 md:mr-14 w-28 md:w- md:py-2 rounded-lg bg-violet-800 text-white hover:bg-opacity-80 active:scale-95'
          onClick={handleGPTSearch}>
           {gptSearchView ? "Home Page" : "GPT Search"}
           </button>
-        <img className='w-10 h-10 rounded-md' src={user?.photoURL} alt="userIcon" />
-        <button className=' h-8 px-1 rounded-md text-sm mt-1 text-white bg-red-700 ml-4 hover:bg-red-600 active:scale-95 focus:outline-none'
+          <div className='flex ml-8 md:ml-0'>
+        <img className='ml-6 md:ml-4 w-10 h-10 rounded-md' src={user?.photoURL} alt="userIcon" />
+        <button className='w-20 md:w-16 md:h-8 md:px-1 rounded-md text-sm mt-1 text-white bg-red-700 ml-4 hover:bg-red-600 active:scale-95 focus:outline-none'
         onClick={handleSignOut}>
           Sign Out</button>
+      </div>
       </div>
       }   
     </div>
